@@ -17,7 +17,10 @@ static double rng_norm() {
 
 // Very simple placement: distance in [0.5, 1.5] cell radii
 static double draw_distance() {
-    return 0.5 + rng_uniform01(); // 0.5..1.5
+    // Area-uniform in annulus [r1, r2]
+    double r1 = 0.5, r2 = 1.5;
+    double u  = rng_uniform01();
+    return sqrt(u*(r2*r2 - r1*r1) + r1*r1);
 }
 
 // CQI mapping from SINR (dB): coarse thresholds (illustrative)
