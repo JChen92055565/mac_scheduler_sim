@@ -22,6 +22,20 @@ make clean && make
   --harq 8 \
   --csv data/schedule.csv
 
+./bin/l1sched \
+  --ttis 10000 --rb 200 --ues 100 \
+  --arrival 0.2 --deadline 8 \
+  --phy-mode 1 \
+  --pathloss-exp 3.5 \
+  --shadowing-std 6.0 \
+  --fading-rho 0.9 \
+  --snr-ref 18.0 \
+  --rb-floor-perr 1e-4 \
+  --harq 8 \
+  --csv data/schedule_med.csv
+
+(larger scale)
+
 # Analyzing Results
 python3 tools/analyze.py data/schedule.csv
 
